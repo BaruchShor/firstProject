@@ -134,29 +134,29 @@ namespace firstProject
 
         }
 
-        static void showMaxValue()
+        static int showMaxValue(int series)
         {
-
+            return series;
         }
 
-        static void showMinValue()
+        static int showMinValue(int series)
         {
-
+            return series;
         }
 
-        static void showAverageSeries()
+        static double showAverageSeries(int series)
         {
-
+            return series;
         }
 
-        static void showNumValues()
+        static int showNumValues(int series)
         {
-
+            return series;
         }
 
-        static void showSumSeries()
+        static int showSumSeries(int series)
         {
-
+            return series;
         }
 
         static bool Exit()
