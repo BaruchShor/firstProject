@@ -8,6 +8,10 @@ namespace firstProject
 {
     internal class Program
     {
+        static void printToUser(object parameter)
+        {
+            Console.WriteLine(parameter);
+        }
 
         static void Menu()
         {
@@ -23,10 +27,10 @@ namespace firstProject
             "8 :Show the number of values ​​in the series",
             "9 :Show the sum of the entire series",
             "10 :Exit the menu"
-        };
+            };
             foreach (string option in menuList)
             {
-                Console.WriteLine(option);
+                printToUser(option);
             }
 
         }
@@ -37,7 +41,7 @@ namespace firstProject
             return choose;
         }
 
-        static void ElectionManager(int choice, int[] numSeries)
+        static void ElectionManager(int choice, int[] numSeries, string[] ddd)
         {
             switch (choice)
             {
@@ -45,10 +49,10 @@ namespace firstProject
                     changeSeries();
                     break;
                 case 2:
-                showSeries(numSeries);
-                break;
+                    showSeries(numSeries);
+                    break;
                 case 3:
-                    showSeriesInRevers();
+                    showSeriesInRevers(ddd);
                     break;
                 case 4:
                     showSortSeries();
@@ -73,13 +77,13 @@ namespace firstProject
 
         static void DisplayingTheMenu()
         {
-            string fff;
+            string exitDoor;
             do
             {
                 Menu();
-                fff = Console.ReadLine();
+                exitDoor = Console.ReadLine();
             }
-            while (fff != "exit");
+            while (exitDoor != "exit");
         }
 
         static string[] changeSeries()
@@ -97,7 +101,7 @@ namespace firstProject
                 {
                     if (!char.IsDigit(num))
                     {
-                        Console.WriteLine($"The value of value number {i} is incorrect pleas enter it again.");
+                        printToUser($"The value of value number {i} is incorrect pleas enter it again.");
                         usersArray[i] = Console.ReadLine();
                         i--;
                         break;
@@ -114,12 +118,15 @@ namespace firstProject
             {
                 Console.Write($" {value}");
             }
-            Console.WriteLine();
+            printToUser("");
         }
 
-        static void showSeriesInRevers()
+        static void showSeriesInRevers(string[] series)
         {
-
+            for (int i = series.Length - 1 ; i > 0; i--)
+            {
+                printToUser(series[i]);
+            }
         }
 
         static void showSortSeries()
@@ -159,9 +166,12 @@ namespace firstProject
 
         static void Main(string[] args)
         {
-            DisplayingTheMenu();
-            string[] aaa = {"123","489","8s9", "123456" };
-            showSeries(arrayValidation(aaa));
+            //printToUser("kkkk");
+            //printToUser(123);
+            //string[] aaa = {"123","489","8s9", "123456" };
+            //showSeries(arrayValidation(aaa));
+            //Console.WriteLine();
+            showSeriesInRevers(args);
 
         }
     }
