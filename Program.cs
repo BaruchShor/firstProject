@@ -41,7 +41,8 @@ namespace firstProject
             do
             {
                 printToUser($"please enter a number of the menu.");
-                choose = Convert.ToInt32(Console.ReadLine());
+                string userChoose = Console.ReadLine();
+                choose = Convert.ToInt32(userChoose);
             } while (choose < 0 || choose > 10);
             return choose;
         }
@@ -122,7 +123,7 @@ namespace firstProject
         {
             foreach (int value in numSeries)
             {
-                Console.Write($" {value}");
+                Console.Write($"{value} ");
             }
             printToUser("");
             return numSeries;
